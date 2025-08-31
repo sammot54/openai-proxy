@@ -34,11 +34,6 @@ function isRateLimited(ip) {
 }
 
 app.post('/vent', async (req, res) => {
-  // --- TESTING BYPASS: Accept FAKE_TEST_TOKEN from iOS app ---
-if (req.headers.authorization === "Bearer FAKE_TEST_TOKEN") {
-    return res.json({ reply: "This is a test AI reply! Your backend bypass worked." });
-}
-// --- END TESTING BYPASS ---
   const ip = req.ip || req.connection.remoteAddress;
 
   // Require app secret header for safety
